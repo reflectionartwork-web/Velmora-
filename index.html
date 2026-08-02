@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velmora - Furniture Workshop</title>
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #936b23; /* اللون الذهبي الجديد */
+            --text-main: #000000; /* نصوص سوداء لباقي العناصر */
+            --text-muted: #222222;
+            --box-bg: #ffffff; /* خانات بيضاء */
+            --text-header: #ffffff; /* نصوص الترويسة بيضاء */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #060000;
+            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 420px;
+            background-color: var(--bg-color);
+            border-radius: 24px;
+            padding: 40px 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 4px solid #ffffff; /* إطار أبيض حول البطاقة */
+            text-align: center;
+        }
+
+        /* Logo and Header */
+        .logo {
+            width: 160px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 10px;
+            /* تحويل اللوغو إلى اللون الأبيض */
+            filter: brightness(0) invert(1); 
+        }
+
+        .slogan {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            color: var(--text-header); /* أبيض */
+        }
+
+        .arabic-slogan {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-header); /* أبيض */
+        }
+
+        /* Info Items */
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .info-card {
+            background: var(--box-bg);
+            border: 2px solid var(--box-bg);
+            border-radius: 16px;
+            padding: 18px;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .info-icon {
+            font-size: 1.5rem;
+            margin-right: 18px;
+            color: var(--text-main);
+        }
+        .info-content {
+            flex: 1;
+            overflow: hidden;
+        }
+        .info-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .info-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        
+        .phone-number {
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            font-family: monospace;
+            font-size: 1.05rem;
+        }
+
+        /* Circular Social & Location Icons */
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .icon-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--box-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            border: 2px solid var(--box-bg);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .icon-btn:hover {
+            background: var(--text-main);
+            color: var(--box-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Main Buttons */
+        .main-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            gap: 10px;
+            background: var(--box-bg);
+            color: var(--text-main);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .main-btn:hover {
+            background: var(--text-main);
+            color: var(--box-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <img src="logo.png" alt="Velmora Logo" class="logo">
+        <div class="slogan">Furniture Workshop</div>
+        <div class="arabic-slogan">المعمل المتكامل لصناعة المفروشات</div>
+
+        <!-- Detailed Info List -->
+        <div class="info-list">
+            <!-- Address -->
+            <a href="https://maps.app.goo.gl/tVxVk9c9A4hxQZbZ9?g_st=atm" class="info-card" target="_blank">
+                <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="info-content">
+                    <div class="info-title">Aleppo - Syria - Al-Plleramon</div>
+                    <div class="info-subtitle" style="text-align: right;">سوريا - حلب - بالليرمون - المنطقة الصناعية</div>
+                </div>
+            </a>
+
+            <!-- Mobile 1 -->
+            <a href="https://wa.me/963966414082" class="info-card" target="_blank">
+                <div class="info-icon"><i class="fas fa-headset"></i></div>
+                <div class="info-content">
+                    <div class="info-subtitle">Customer Service (WhatsApp)</div>
+                    <div class="info-title phone-number">+963 966 414 082</div>
+                </div>
+            </a>
+
+            <!-- Mobile 2 -->
+            <a href="https://wa.me/963994777209" class="info-card" target="_blank">
+                <div class="info-icon"><i class="fas fa-headset"></i></div>
+                <div class="info-content">
+                    <div class="info-subtitle">Customer Service (WhatsApp)</div>
+                    <div class="info-title phone-number">+963 994 777 209</div>
+                </div>
+            </a>
+            
+            <!-- Email -->
+            <a href="mailto:velmorafurnitureco1@gmail.com" class="info-card" target="_blank">
+                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                <div class="info-content">
+                    <div class="info-subtitle">Email Address</div>
+                    <div class="info-title" style="font-size: 0.9rem;">velmorafurnitureco1@gmail.com</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Quick Circular Action Icons -->
+        <div class="quick-actions">
+            <a href="https://maps.app.goo.gl/tVxVk9c9A4hxQZbZ9?g_st=atm" class="icon-btn" target="_blank" title="Location"><i class="fas fa-location-dot"></i></a>
+            <a href="https://wa.me/963966414082" class="icon-btn" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1Hi1sG4rvZ/" class="icon-btn" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/velmora_furniture.workshop?igsh=aWFjajdva2YzN2lq" class="icon-btn" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Main Action Buttons -->
+        <a href="portfolio.pdf" class="main-btn" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            Our Portfolio|معرض لبعض أعمالنا
+        </a>
+
+        <!-- Links to the VCF file for saving contact -->
+        <a href="contact.vcf" class="main-btn" download>
+            <i class="fas fa-user-plus"></i>
+            Save Contact | حفظ جهة الاتصال
+        </a>
+
+    </div>
+
+</body>
+</html>
