@@ -12,7 +12,7 @@
         :root {
             --bg-color: #936b23; /* اللون الذهبي الجديد */
             --text-main: #000000; /* نصوص سوداء لباقي العناصر */
-            --text-muted: #222222;
+            --text-muted: #333333;
             --box-bg: #ffffff; /* خانات بيضاء */
             --text-header: #ffffff; /* نصوص الترويسة بيضاء */
         }
@@ -24,7 +24,7 @@
         }
 
         body {
-            background-color: #060000;
+            background-color: var(--bg-color);
             color: var(--text-main);
             font-family: 'Cairo', sans-serif;
             display: flex;
@@ -61,14 +61,14 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 2px;
-            color: var(--text-header); /* أبيض */
+            color: var(--text-header);
         }
 
         .arabic-slogan {
             font-size: 1.05rem;
             font-weight: 700;
             margin-bottom: 25px;
-            color: var(--text-header); /* أبيض */
+            color: var(--text-header);
         }
 
         /* Info Items */
@@ -82,13 +82,14 @@
             background: var(--box-bg);
             border: 2px solid var(--box-bg);
             border-radius: 16px;
-            padding: 18px;
+            padding: 16px 10px;
             text-decoration: none;
             color: var(--text-main);
             display: flex;
             align-items: center;
+            justify-content: center;
+            position: relative;
             transition: all 0.3s ease;
-            text-align: left;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         .info-card:hover {
@@ -96,26 +97,26 @@
             box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         .info-icon {
+            position: absolute;
+            left: 20px;
             font-size: 1.5rem;
-            margin-right: 18px;
             color: var(--text-main);
         }
         .info-content {
-            flex: 1;
-            overflow: hidden;
+            width: 100%;
+            text-align: center;
+            padding: 0 40px; /* لترك مساحة للأيقونة */
+        }
+        .info-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 4px;
         }
         .info-title {
             font-weight: 700;
             font-size: 0.95rem;
-            margin-bottom: 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .info-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
+            margin-bottom: 2px;
         }
         
         .phone-number {
@@ -189,16 +190,18 @@
         
         <img src="logo.png" alt="Velmora Logo" class="logo">
         <div class="slogan">Furniture Workshop</div>
-        <div class="arabic-slogan">المعمل المتكامل لصناعة المفروشات</div>
+        <div class="arabic-slogan">معمل متكامل لصناعة المفروشات</div>
 
         <!-- Detailed Info List -->
         <div class="info-list">
+            
             <!-- Address -->
             <a href="https://maps.app.goo.gl/tVxVk9c9A4hxQZbZ9?g_st=atm" class="info-card" target="_blank">
                 <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
                 <div class="info-content">
-                    <div class="info-title">Aleppo - Syria - Al-Plleramon</div>
-                    <div class="info-subtitle" style="text-align: right;">سوريا - حلب - بالليرمون - المنطقة الصناعية</div>
+                    <div class="info-subtitle">العنوان / Address</div>
+                    <div class="info-title">سوريا - حلب - بالليرمون - المنطقة الصناعية</div>
+                    <div class="info-title" style="font-size: 0.85rem; color: #444; font-weight: 600;">Aleppo - Syria - Al-Plleramon</div>
                 </div>
             </a>
 
@@ -206,8 +209,8 @@
             <a href="https://wa.me/963966414082" class="info-card" target="_blank">
                 <div class="info-icon"><i class="fas fa-headset"></i></div>
                 <div class="info-content">
-                    <div class="info-subtitle">Customer Service (WhatsApp)</div>
-                    <div class="info-title phone-number">+963 966 414 082</div>
+                    <div class="info-subtitle">خدمة الزبائن / Customer service</div>
+                    <div class="info-title phone-number">whatsapp: +963 966 414 082</div>
                 </div>
             </a>
 
@@ -215,8 +218,8 @@
             <a href="https://wa.me/963994777209" class="info-card" target="_blank">
                 <div class="info-icon"><i class="fas fa-headset"></i></div>
                 <div class="info-content">
-                    <div class="info-subtitle">Customer Service (WhatsApp)</div>
-                    <div class="info-title phone-number">+963 994 777 209</div>
+                    <div class="info-subtitle">خدمة الزبائن / Customer service</div>
+                    <div class="info-title phone-number">whatsapp: +963 994 777 209</div>
                 </div>
             </a>
             
@@ -224,10 +227,11 @@
             <a href="mailto:velmorafurnitureco1@gmail.com" class="info-card" target="_blank">
                 <div class="info-icon"><i class="fas fa-envelope"></i></div>
                 <div class="info-content">
-                    <div class="info-subtitle">Email Address</div>
+                    <div class="info-subtitle">البريد الالكتروني / Email Address</div>
                     <div class="info-title" style="font-size: 0.9rem;">velmorafurnitureco1@gmail.com</div>
                 </div>
             </a>
+            
         </div>
 
         <!-- Quick Circular Action Icons -->
@@ -241,7 +245,7 @@
         <!-- Main Action Buttons -->
         <a href="portfolio.pdf" class="main-btn" target="_blank">
             <i class="fas fa-file-pdf"></i>
-            Our Portfolio|معرض لبعض أعمالنا
+            Our Portfolio
         </a>
 
         <!-- Links to the VCF file for saving contact -->
